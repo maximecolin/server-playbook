@@ -2,7 +2,6 @@
   - name: apt update
     apt: >
       update_cache=yes
-    sudo: yes
   - name: apt upgrade
     apt: >
       upgrade=full
