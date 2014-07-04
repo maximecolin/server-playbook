@@ -1,5 +1,6 @@
 - hosts: all
   roles:
+    - dotdeb
     - fail2ban
   tasks:
 
