@@ -5,6 +5,7 @@
     - base
     - dotdeb
     - fail2ban
+    - vim
   tasks:
 
   # Apache
