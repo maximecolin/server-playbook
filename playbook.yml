@@ -1,0 +1,68 @@
+- hosts: all
+  tasks:
+
+  # Apache
+  - name: apache2
+    apt: >
+      pkg=apache2
+      state=present
+
+  # PHP
+  - name: php5
+    apt: >
+      pkg={{ item }}
+      state=present
+    with_items:
+      - php5-fpm
+      - php5-cli
+      - libapache2-mod-php5
+      #- php5-common
+      #- php5-curl
+      #- php5-dev
+      #- php5-gd
+      #- php5-idn
+      #- php-pear
+      #- php5-imagick
+      #- php5-imap
+      #- php5-json
+      #- php5-mcrypt
+      #- php5-memcache
+      #- php5-mhash
+      #- php5-ming
+      #- php5-mysql
+      #- php5-ps
+      #- php5-pspell
+      #- php5-recode
+      #- php5-snmp
+      #- php5-sqlite
+      #- php5-tidy
+      #- php5-xmlrpc
+      #- php5-xsl
+    notify: apache restart
+
+  # MySQL
+  - name: mysql
+    apt: >
+      pkg={{ item }}
+      state=present
+    with_items:
+      - mysql-server
+      - mysql-client
+      - php5-mysql
+
+  # Git
+  - name: git
+    apt: >
+      pkg=git
+      state=present
+
+  handlers:
+
+    #Apache
+    - name: apache restart
+      service: >
+        name=apache2
+        state=restarted
+
+
+
