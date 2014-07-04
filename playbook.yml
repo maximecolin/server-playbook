@@ -72,6 +72,18 @@
       pkg=git
       state=present
 
+  # VirtualHost
+  - name: Apache | Add www virtual host
+    template: >
+      src=templates/vhost/www.maximecolin.fr
+      dest=/etc/apache2/sites-available/
+
+  - name: Apache | Disable default site
+    action: command a2dissite default
+
+  - name: Apache | Enable www site
+    action: command a2ensite www.maximecolin.fr
+
   handlers:
 
     #Apache
@@ -79,6 +91,3 @@
       service: >
         name=apache2
         state=restarted
-
-
-
