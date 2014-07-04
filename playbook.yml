@@ -1,4 +1,6 @@
 - hosts: all
+  roles:
+    - fail2ban
   tasks:
 
   # Apache

@@ -1,0 +1,25 @@
+[DEFAULT] 
+bantime  = 1200
+maxretry = 6
+
+[pam-generic]
+enabled = true
+
+[ssh-ddos]
+enabled = true
+
+[ssh]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
+bantime  = 900
+
+[apache-badbots]
+enabled  = true
+port     = http,http
+filter   = apache-badbots
+logpath  = /var/log/apache*/*access.log
+bantime  = 172800
+maxretry = 1

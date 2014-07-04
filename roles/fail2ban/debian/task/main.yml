@@ -1,0 +1,13 @@
+---
+- name: fail2ban install
+  apt: >
+    pkg=fail2ban
+    state=present
+- name: fail2ban config
+  template: >
+    src=jail.local
+    dest=/etc/fail2ban
+  sudo: no
+- name: fail2ban restart
+  service: fail2ban
+  state: restarted
