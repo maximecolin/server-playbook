@@ -45,6 +45,15 @@
       #- php5-xsl
     notify: apache restart
 
+  - name: php5 timezone
+    action: >
+      ini_file 
+      dest=/etc/php5/apache2/php.ini 
+      section=Date 
+      option=date.timezone 
+      value=Europe/Paris
+      mode=0600
+
   # MySQL
   - name: mysql
     apt: >
