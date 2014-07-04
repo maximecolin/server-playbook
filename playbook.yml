@@ -2,6 +2,7 @@
   user: root
 
   roles:
+    - base
     - dotdeb
     - fail2ban
   tasks:
