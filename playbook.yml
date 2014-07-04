@@ -53,6 +53,7 @@
       option=date.timezone 
       value=Europe/Paris
       mode=0600
+    notify: apache restart
 
   # MySQL
   - name: mysql
