@@ -1,4 +1,6 @@
 - hosts: all
+  user: root
+
   roles:
     - dotdeb
     - fail2ban
